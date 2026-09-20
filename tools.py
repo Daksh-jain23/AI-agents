@@ -22,4 +22,9 @@ def search_browser(query: str) -> str:
 @tool
 def wikipedia(query: str) -> str:
     """Search Wikipedia for general factual information."""
-    return wiki.run(query)
+
+    try:
+        return wiki.run(query)
+
+    except Exception as e:
+        return f"Wikipedia search failed: {str(e)}"
